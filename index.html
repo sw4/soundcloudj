@@ -1,79 +1,452 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Soundcloudj : Angular based SoundCloud streaming and Mixing App" />
+<html lang="en"  ng-app="scApp">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+<head>
 
-    <title>Soundcloudj</title>
-  </head>
+    <title>SC</title>
 
-  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/sw4/soundcloudj">View on GitHub</a>
+    <meta charset="utf-8">
 
-          <h1 id="project_title">Soundcloudj</h1>
-          <h2 id="project_tagline">Angular based SoundCloud streaming and Mixing App</h2>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/sw4/soundcloudj/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/sw4/soundcloudj/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+    <!-- HTML5 Element Support -->
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+    <!--[if lt IE 9]>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+    <![endif]-->   
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+    <!-- Soundcloud API -->
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+    <script src="http://connect.soundcloud.com/sdk.js"></script>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+    <!-- jQuery -->
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Soundcloudj maintained by <a href="https://github.com/sw4">sw4</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
+   <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 
     
 
-  </body>
+    <!-- reflection.js -->
+
+    <script src="js/reflection.js"></script> 
+
+
+
+    <!-- Angular.js -->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+
+    <script src="js/script.js"></script>
+    <!-- Bootstrap -->
+    <!--
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    -->
+
+    
+
+    <script src="https://rawgithub.com/sw4/sliderBar.js/master/sliderBar.min.js"></script>
+
+    <link rel="stylesheet" href="https://rawgithub.com/sw4/sliderBar.js/master/sliderBar.min.css">
+
+    
+
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">   
+
+    <link href="css/styles.css" rel="stylesheet">   
+
+    <script src="js/timeago.js"></script>
+
+    <script src="js/jquery-autogrow.min.js"></script>
+
+        
+
+<script>
+
+
+
+</script>
+
+  
+
+</head>
+
+<body ng-controller="pageController" ng-keydown ="keydown($event)" ng-keyup ="keyup($event)" ng-init='init()'>
+
+    <div id='page-menu' class="{{search.show && 'active' || ''}}" ng-controller="searchEnactController">    
+
+        <div id='search-input'><input ng-click="search.toggle(true)"  type="text" ng-model="search.query" placeholder="Search..." /></div>    
+
+        <button  ng-click="search.toggle(false)" ng-show='search.show' id='search-cancel'><i class="fa fa-times"></i></button> 
+
+        <!-- <a id='soundcloud-link' href='http://www.soundcloud.com' style="background-image:url(images/{{search.show && 'powered_by_black.png' || 'powered_by_white.png'}});" target='_new'></a> -->
+
+        <ul id='page-menu-controls' style=''>
+
+            <li >
+
+                <i  ng-click='toggle("FadeIn")' class="fa fa-signal fa-fw"></i>
+
+                <div class='page-menu-controls-dropdown' >
+
+                    <div id='sliderBarFadeIn' class='sliderBar'></div>
+
+                <div>
+
+            </li>
+
+            <li >
+
+                <i  ng-click='toggle("FadeOut")' class="fa fa-signal fa-flip-horizontal fa-fw"></i>
+
+                <div class='page-menu-controls-dropdown' >
+
+                    <div id='sliderBarFadeOut' class='sliderBar'></div>
+
+                <div>
+
+            </li>      
+
+            <li ng-click='toggle("shuffle")' class="{{player.shuffle && 'active' || ''}}">
+
+                <i class="fa fa-random fa-fw "></i>
+
+            </li>    
+
+            <li>
+
+                <i  ng-click='toggle("Volume")' class="fa fa-volume-up fa-fw"></i>
+
+                <div class='page-menu-controls-dropdown' >
+
+                    <div id='sliderBarVolume' class='sliderBar'></div>
+
+                <div>
+
+            </li>    
+
+            <li ng-show='set.list.length>0' ng-click='set.togglePlay(0,true)' >
+
+                <i class="fa fa-{{(!set.list[0].stream.isBuffering && set.list[0].state.playing) && 'pause' || 'play'}} fa-fw"></i>
+
+            </li>                
+
+        </ul>       
+
+    </div>
+
+   <div  id="page-search" ng-show="search.show" class="{{search.show && 'active' || ''}}"  ng-controller='searchResultController'>
+
+        <h2>
+
+            <a ng-show='search.polling.tracks || search.results.tracks.length>0' href='#' ng-click='view("tracks")'>Tracks</a><i ng-show="search.polling.tracks" class="fa fa-spinner fa-spin"></i>
+
+            <span ng-show='(search.polling.tracks || search.results.tracks.length>0) && (search.polling.playlists || search.results.playlists.length>0)'> | </span>                
+
+            <a ng-show='search.polling.playlists || search.results.playlists.length>0'  href='#' ng-click='view("playlists")'>Playlists</a><i ng-show="search.polling.playlists" class="fa fa-spinner fa-spin"></i>
+
+        </h2>
+
+       <div ng-show="search.view=='tracks'">
+
+            <ul>
+
+               <li ng-repeat="track in search.results.tracks" class='search-result'>   
+
+                    <div class='search-result-meta'  ng-style="{'background-image':'url('+track.artwork_url+')'}" >
+
+                       <h1>
+
+                            {{track.title}}
+
+                        </h1>
+
+                        <br>
+
+                       <h2>
+
+                            {{track.user.username}}
+
+                        </h2>
+
+                       <h3 class='text-overflow-ellipsis'>
+
+                            <i class="fa fa-headphones"></i>{{track.playback_count}}<i class="fa fa-comments"></i>{{track.comment_count}}<i class="fa fa-thumbs-up"></i>{{track.favoritings_count}}<i class="fa fa-clock-o"></i>{{util.convertToPlaytime(track.duration)}}<i class="fa fa-cloud-upload"></i>{{util.timeAgo(track.created_at)}}
+
+                       </h3>
+
+                    </div>
+
+                    <div class='search-result-mask'  ng-click='add(track, $parent.ctrlPressed)' >
+
+                        <i class="fa fa-{{$parent.ctrlPressed && 'plus' || 'play'}}"></i>
+
+                    </div>
+
+               </li>
+
+            </ul>
+
+        </div>
+
+        <div ng-show="search.view=='playlists'">            
+
+            <ul>
+
+               <li ng-repeat="playlist in search.results.playlists" class='search-result'>     
+
+                    <div ng-click='toggleDetail($event)' class='search-result-badge'>{{playlist.tracks.length}}</div>                          
+
+                    <div class='search-result-meta'  ng-style="{'background-image':'url('+playlist.artwork_url+')'}" >                        
+
+                        <h1>
+
+                            {{playlist.title}}
+
+                        </h1>
+
+                        <br>
+
+                       <h2>
+
+                            {{playlist.user.username}}
+
+                        </h2>
+
+                       <h3 class='text-overflow-ellipsis'>
+
+                            <i class="fa fa-clock-o"></i>{{util.convertToPlaytime(playlist.duration)}}<i class="fa fa-cloud-upload"></i>{{util.timeAgo(playlist.created_at)}}
+
+                       </h3> 
+
+                       <div class='search-result-mask'  ng-click='add(playlist, $parent.ctrlPressed)' >
+
+                            <i class="fa fa-{{$parent.ctrlPressed && 'plus' || 'play'}}"></i>
+
+                       </div>
+
+                    </div>
+
+                   <div class='search-result-detail'>
+
+                        <ul>
+
+                            <li ng-repeat="track in playlist.tracks">  
+
+                                <a href='#' ng-click='set.add(track, $parent.ctrlPressed)' >{{track.title}}</a>
+
+                            </li>
+
+                        </ul>                           
+
+                   </div>                        
+
+               </li>
+
+            </ul> 
+
+         </div>  
+
+    </div>
+
+
+
+   <div id='page-set'  ng-controller="setController">    
+
+   
+
+<!--splash.jpg-->
+
+    <div ng-if="set.list.length==0" style='height:100%;width:100%;background-image:url(images/splash.jpg);background-size:cover;background-position:center center;'>
+
+        <h1 style='background:rgba(0,0,0,0.7);color:#fff;font-size:60px;margin-top:100px;display:inline-block;padding:0 0 0 20px;'>
+
+            Find. Play. Party.
+
+        </h1><br>
+
+        <h1 style='background:rgba(0,0,0,0.7);color:#fff;font-size:30px;text-align:center;margin-top:30px;display:inline-block;padding:0 10px 0 20px;'>
+
+            Yes! Find me some <input id='splash-search' type='text' class='autogrow' placeholder="..." ng-keydown ="$parent.keydown($event)" value='Drum and Bass' /><i class="fa fa-arrow-circle-o-right"></i>
+
+        </h1>
+
+    </div>
+
+
+
+       <ul ng-if="set.list.length>0">
+
+          <li ng-repeat="track in set.list track by $index"  ng-controller="trackController">
+
+                <div ng-if='$index == 0' id='track-banner'>                        
+
+                      <div class='display-table'>
+
+                        <!--   
+
+                        <div class='display-caption'>
+
+                                <h1>Playlist</h1>
+
+                                <h3><i class="fa fa-music"></i>{{set.list.length+ ' track' + (set.list.length>1 && 's' ||'')}}<i class="fa fa-clock-o"></i>{{util.convertToPlaytime(playTime())}}</h3>
+
+                        </div>
+
+                        -->
+
+                        <div class='display-row'>
+
+                            <div class='display-cell'>
+
+                                <button id='track-togglePlay' ng-click='$parent.set.togglePlay($index, true)'><i class="fa fa-{{(!track.stream.isBuffering && track.state.playing) && 'pause' || 'play'}}"></i></button> 
+
+                            </div>
+
+                            <div class='display-cell text-overflow-ellipsis'>
+
+                                <h1 class='text-overflow-ellipsis'><a href='{{track.meta.permalink_url}}' target='_new'>{{track.meta.title}}</a></h1>
+
+                                <h2>{{track.meta.user.username}}</h2>                                        
+
+                                <a href='{{track.meta.permalink_url}}' target='_new'><img src='images/link_white.png' alt='' style='vertical-align:middle;opacity:0.7;margin-top:-2px;' /></a> <i class="fa fa-headphones"></i>{{track.meta.playback_count}}<i class="fa fa-comments"></i>{{track.meta.comment_count}}<i class="fa fa-thumbs-up"></i>{{track.meta.favoritings_count}}<i class="fa fa-clock-o"></i>{{util.convertToPlaytime(track.meta.duration)}}<i class="fa fa-cloud-upload"></i>{{util.timeAgo(track.meta.created_at)}}
+
+                                <h2 style='overflow:hidden;'>
+
+                                    <div style='float:left;'>
+
+                                        +{{util.convertToPlaytime(track.stream.position)}}
+
+                                    </div>
+
+                                    <div style='float:right;'>
+
+                                        -{{util.convertToPlaytime(track.meta.duration-track.stream.position-$parent.player.fadeOut)}}
+
+                                    </div>   
+
+                                </h2>
+
+                                <div id='track-progress-sliderBar' class='sliderBar' style='width:100%;height:20px;'></div>
+
+                                <div id='track-buffer'>
+
+                                    <div ng-show="track.state.playing && track.stream.bytesLoaded && track.stream.bytesLoaded < track.stream.bytesTotal" id="track-buffer-progress" style="width:{{(100*track.stream.bytesLoaded / track.stream.bytesTotal) | number:0}}%;"></div>
+
+                                </div>
+
+                                <div id='track-change' ng-if='set.list.length>1' class='display-table'>
+
+                                     <div class='display-row'>
+
+                                        <div class='display-cell'>
+
+                                          <i class="fa fa-backward"></i>
+
+                                        </div>                                    
+
+                                        <div class='display-cell text-overflow-ellipsis'>
+
+                                             <a href='#' ng-click='shiftPosition(0, set.list.length-1)'>{{set.list[set.list.length-1].meta.title}}</a>
+
+                                        </div>
+
+                                        <div class='display-cell text-overflow-ellipsis'>
+
+                                            <a href='#' ng-click='shiftPosition(0, 1)'>{{set.list[1].meta.title}}</a>
+
+                                        </div>
+
+                                        <div class='display-cell'>
+
+                                            <i class="fa fa-forward"></i>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>                                     
+
+                            <div  id="track-artwork" class='display-cell'>                                        
+
+                                    <img src="" ng-src="{{track.meta.artwork_url}}" alt=""/> 
+
+                            </div>
+
+                        </div>
+
+                      </div>     
+
+                </div>                             
+
+                <div ng-if='$index > 0' class='playlist-track'>                               
+
+                    <div class='display-table'>
+
+                         <div class='display-row'>
+
+                            <div class='display-cell playlist-track-controls'>
+
+                               <i ng-click='shiftPosition($index-1)' class="fa fa-play fa-rotate-270"></i> <i  ng-click='shiftPosition($index+1)' class="fa fa-play fa-rotate-90"></i> <i  ng-click='shiftPosition(1)' class="fa fa-forward fa-rotate-270"></i> <i  ng-click='shiftPosition(0)' class="fa fa-play"></i>
+
+                            </div>
+
+                            <div class='display-cell'>
+
+                               <span ng-show='!$parent.$parent.player.shuffle'>{{$index+1}}.</span><i ng-show='$parent.$parent.player.shuffle' class="fa fa-random fa-fw"></i>
+
+                            </div>                                    
+
+                            <div class='display-cell text-overflow-ellipsis'>
+
+                                <a href='#' ng-click='shiftPosition(0)'>{{track.meta.title}}</a>
+
+                            </div>
+
+                            <div class='display-cell text-overflow-ellipsis'>
+
+                                {{track.meta.user.username}}
+
+                            </div>
+
+                            <div class='display-cell'>
+
+                                <i class="fa fa-clock-o"></i> {{util.convertToPlaytime(track.meta.duration)}}
+
+                            </div>
+
+                        </div>
+
+                    </div>                            
+
+                </div>
+
+          </li>
+
+       </ul>
+
+   </div>
+
+   <ul id='notifications'>
+
+        <li ng-click="dismissNotification($event, $index)" ng-repeat="notification in notifications.list track by $index" data-notification-timestamp='{{notification.timestamp}}'>
+
+            <h1>{{notification.title}}</h1>
+
+            {{notification.body}}
+
+        </li>
+
+   </ul>
+
+</body>
+
 </html>
